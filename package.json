@@ -1,5 +1,5 @@
 {
-  "name": "faltbar-server",
+  "name": "falter",
   "version": "1.0.0",
   "description": "",
   "main": "build/main/index",
@@ -7,7 +7,6 @@
   "module": "build/module/index.js",
   "scripts": {
     "start": "node ./build/index.js",
-    "start-questions": "node ./build/buildQuestions.js",
     "dev": "nodemon ./build/index.js",
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
