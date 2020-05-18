@@ -53,7 +53,10 @@
     "dbus-network-manager": "git+ssh://git@github.com/LGSInnovations/node-dbus-network-manager.git",
     "dotenv": "^8.2.0",
     "eventemitter3": "^4.0.0",
+    "express": "^4.17.1",
+    "freedesktop-desktop-entry": "^1.0.0",
     "i3": "^0.3.0",
+    "node-ipc": "^9.1.1",
     "node-networkmanager": "git+ssh://git@github.com/vgrid/node-networkmanager.git",
     "regenerator-runtime": "^0.13.5",
     "systeminformation": "^4.24.1"

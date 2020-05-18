@@ -24,4 +24,8 @@ export class Plugin {
   public update(): Promise<any> {
     return Promise.resolve()
   }
+
+  public init(): Promise<void> {
+    return Promise.resolve()
+  }
 }

@@ -9,12 +9,14 @@ interface ShellCommandMap {
 export default class ShellPlugin extends Plugin {
   private commands: ShellCommandMap = {}
   private command: string
+  private intervalDuration: number
 
-  constructor(namespace: string, command: string, interval = 5000) {
+  constructor(namespace: string, command: string, interval = 0) {
     super(namespace)
 
+    this.intervalDuration = interval
     this.command = command
-    this.executeCommand(command, interval)
+    this.executeCommand(command)
   }
 
   public execute(command: string): Promise<string> {
@@ -40,12 +42,20 @@ export default class ShellPlugin extends Plugin {
     return output
   }
 
-  public executeCommand(command: string, interval: number): void {
-    this.commands[command] = setInterval(() => {
+  public executeCommand(command: string): void {
+    const fn = () => {
       this.execute(command).then((output: string) => {
         const parsed = this.parseOutput(output)
         this.emit('update', parsed)
       })
-    }, interval)
+    }
+
+    if (this.intervalDuration) {
+      this.commands[command] = setInterval(() => {
+        fn()
+      }, this.intervalDuration)
+    } else {
+      fn()
+    }
   }
 }

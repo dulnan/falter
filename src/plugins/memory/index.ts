@@ -12,11 +12,13 @@ export default class MemoryPlugin extends ShellPlugin {
   public parseOutput(output: string): any {
     return output
       .split('\n')
-      .map((line) => {
+      .map((line: string) => {
         const [key, value] = line.split(':').map((v) => v.trim())
         if (value !== undefined) {
           return { key, value: parseInt(value.split(' ')[0], 10) }
         }
+
+        return
       })
       .filter(Boolean)
       .reduce((acc: MemoryOutput, v: any) => {

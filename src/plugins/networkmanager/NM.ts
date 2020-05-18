@@ -1,3 +1,4 @@
+// @ts-nocheck
 import EventEmitter from 'eventemitter3'
 const nodeNetworkManager = require('node-networkmanager')
 

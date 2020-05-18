@@ -15,11 +15,11 @@ export default class NetworkManager extends Plugin {
     this.nm = nm
 
     this.nm.on('change', (connections) => {
-      this.emit('update', connections)
+      this.emit('update', { connections })
     })
   }
 
   public update(): Promise<any> {
-    return this.nm.getConnections()
+    return this.nm.getConnections().then((connections) => ({ connections }))
   }
 }
