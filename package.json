@@ -59,7 +59,7 @@
     "node-ipc": "^9.1.1",
     "node-networkmanager": "git+ssh://git@github.com/vgrid/node-networkmanager.git",
     "regenerator-runtime": "^0.13.5",
-    "systeminformation": "^4.24.1"
+    "systeminformation": "^4.30.5"
   },
   "devDependencies": {
     "@bitjson/npm-scripts-info": "^1.0.0",
